@@ -22,7 +22,7 @@ public class ConsolePlayer<B extends Board<M>, M> implements Player<B, M> {
         M move = null;
         do {
             move = parser.apply(scanner.next());
-            if (!possible.contains(move)) System.err.println("Mouvement illégal du joueur");
+            if (!possible.contains(move)) System.err.println("Mouvement illégal du joueur : " + move);
         } while (!possible.contains(move));
 		return move;
 	}
