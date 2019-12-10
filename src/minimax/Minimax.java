@@ -34,7 +34,7 @@ public class Minimax<B extends Board<M>, M> implements Player<B, M> {
             @SuppressWarnings("unchecked")
 			var bc = (B)b.copy().move(m);
             int score;
-            if (depth == 0) score = evaluate(bc, realPlayer, depth);
+            if (depth == 0 || bc.getGameState() != GameState.IN_PROGRESS) score = evaluate(bc, realPlayer, depth);
             else {
                 var found = move(bc, realPlayer, curPlayer ^ 1, depth - 1, alpha, beta);
                 if (found == null) score = evaluate(bc, realPlayer, depth);
